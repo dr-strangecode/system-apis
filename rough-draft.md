@@ -39,7 +39,7 @@ If we extend the thought a little more: wouldn't it be interesting to have a pro
 
 One of the easiest entry points to treating systems more like programs is to put an actual API on the system, focused on system functionality.  Let's go back to our earlier example of web servers, cache servers, and a database:
 
-## Web Servers
+#### Web Servers
 ```
 /current_user_count
 /start_web
@@ -47,7 +47,7 @@ One of the easiest entry points to treating systems more like programs is to put
 /web_status
 ```
 
-## Cache Servers
+#### Cache Servers
 ```
 /clear_cache
 /start_cache
@@ -55,7 +55,7 @@ One of the easiest entry points to treating systems more like programs is to put
 /cache_status
 ```
 
-## Database Servers
+#### Database Servers
 ```
 /compact
 /clear_old_stuff
