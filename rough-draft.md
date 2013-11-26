@@ -64,4 +64,27 @@ One of the easiest entry points to treating systems more like programs is to put
 /database_status
 ```
 
+These are somewhat contrived examples of things that configuration management is a poor fit for: things that cause us to log on to the systems.
+
+## API Quick Start
+
+You've got two options for starting out with API's: write your own or use a tool that makes it easy.
+
+#### PyJoJo
+
+I like to start with [pyJoJo](https://github.com/atarola/pyjojo).  It basically turns bash scripts into API calls.  Don't expect it to tie into your authentication system; that's what a custom API is for.  What it's great at is easily getting an API onto your system that lets you start exploring what we've been discussing.
+
+Word to the wise: be specific.  If you write a little method that lets you install any package in the world, don't be suprised when someone has used it to install something stupid.  If you want to try writing a method to install the latest version of the software package that the developers have been working on: consider hard coding the script to the name of the software, but making the version a parameter you can pass.
+
+#### Write Your Own
+
+Eventually you're going to want things out of the API that pyjojo won't do.  It's time to start writing some code.  Better yet, get the devs to do it!  Make a demo of what you're thinking in pyjojo and then let the developers show you "how it's *really* done."
+
+
+## Where Do We Go From Here?
+
+This is more of a first step than a destination.  API's on the systems is great, but the real power comes when we realize what we've just done.  We've put *API's* on our *systems*.  I don't know about you, but I think I know a guy or two at the office that messes with this "web stuff."  Maybe one of them could make, I dunno, a dashboard or something?
+
+Something that would tell us who did what, when.  Something repeatable and three-in-the-morning-proof.  Something little Johnny can wipe his nose with.
+
 
