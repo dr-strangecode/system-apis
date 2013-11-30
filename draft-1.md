@@ -12,7 +12,7 @@ Things are going well.  Everything is up and running.  You're browsing the bofh 
 
 Stop right here.  If we remember our desire to treat things like a developer would his application: why are we messing with the internal state of the object by logging in to the system?  We habitually log in to our systems to perform routine tasks but by doing this we have thrown out any similarity to programming.  We decry the practice of developers making a bugfix on the production server, yet we don't think twice when we log in to restart a service.
 
-This begs the question, "What would our systems look like if we were to treat them like developers treat their objects?"
+This raises the question, "What would our systems look like if we were to treat them like developers treat their objects?"
 
 
 ## Do It Like They Do On The IRC Channel
@@ -23,7 +23,7 @@ If you need an object to do something or look a certain way, you don't poke arou
 
 Take the simple case of managing a service.  Sometimes you need to turn a service off or on without the need to change a config file.  Configuration management is a poor choice for the periodic or non-normal state.  I don't want to deploy a new configuration for something that's only temporary.  I want to be able to "manage" the service.
 
-If we extend that thought a little more: wouldn't it be interesting to have a program that we can deploy on our systems?  A program that models the functionality of our system?  A program that lets us perform those routine tasks we're so used to doing by hand?  A program that's in source control?  A program that we can have tests for?  A program that can handle the little bits that configuration management is weak at?
+If we extend that thought a little more: wouldn't it be interesting to have a program that we can deploy that models the functionality of our system?  A program that lets us perform those routine tasks we're so used to doing by hand?  A program that's in source control?  A program that we can have tests for?  A program that can handle the little bits that configuration management is weak at?
 
 One of the easiest entry points to treating systems more like programs is to put an actual API on the system, focused on system functionality.
 
@@ -32,7 +32,9 @@ One of the easiest entry points to treating systems more like programs is to put
 
 An [API](http://en.wikipedia.org/wiki/Application_programming_interface) provides a clean, well defined interface for systems to interact with each other.
 
-It's fairly common for web apps to have HTTP API's: developers use them regularly to get applications to talk to each other.  They're easy to interact with on the command line with tools like curl; or when you want to start putting together some more complex behavior, you can make a command line client with your language of choice.
+That interface provides the perfect mechanism to ensure that system operations are performed the same way *every* time.  Configuration Management lets us standardize what our systems look like; API's allow us to standardize how we manage our systems.
+
+There are a lot of different kinds of API's.  One of the simplest, and the kind that we'll be focusing on here, is a [web API](http://en.wikipedia.org/wiki/Application_programming_interface#Web_APIs).  They're easy to interact with on the command line with tools like curl; or when you want to start putting together some more complex behavior, you can make a command line client with your language of choice.
 
 Let's look at what the interfaces for our system API's might look like with our earlier simple app example:
 
@@ -104,7 +106,7 @@ Now we have a fairly complex task broken down into steps that anyone can run wit
 
 One of the core principles of DevOps is culture.  Put another way, it's a sense of community.  How can you have a sense of community with someone you don't talk to?
 
-Interface design presents a great opportunity to collaborate with developers.  It provides developers an opportunity to work with you on good programming techniques.  It brings up questions like "Should we break this one api call up into smaller pieces and what's the best way to do that?".
+Interface design presents a great opportunity to collaborate with developers.  It provides developers an opportunity to work with you on good programming techniques.  It brings up questions like "Should we break this one API call up into smaller pieces and what's the best way to do that?".
 
 These kinds of conversations can be very helpful in developing a sense of community.  You're able to talk about something developers love in a setting that interests you.  They provide a safe topic when things have gotten a little tense because of system downtime or bugs in production.
 
@@ -136,4 +138,6 @@ Something that would tell us who did what, when, and what happened.
 
 Something that provides an easy interface to complex functionality.
 
-Something like... a program.
+Something that has a deploy pipeline and tests.
+
+Now *this* is starting to sound like programming.
